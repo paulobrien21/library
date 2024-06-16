@@ -3,7 +3,7 @@ body{
 }
 .library-container{
     display: flex;
-    justify-content: baseline;
+    
     align-items: baseline;
     width: 100vw;
     height: 100vh;
@@ -11,8 +11,17 @@ body{
     padding: 30px;
 }
 .book-card{
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(231, 231, 231);
     width: 300px;
     height: 420px;
     border-radius: 30px;
+}
+.book-card > button{
+    background-color: red;
+    width: 70%;
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: 20px;
 }
