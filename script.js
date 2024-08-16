@@ -54,7 +54,7 @@ function displayLibrary(myLibrary) {
     div.innerHTML = `<h2>${element.title}</h2>
     <p>by <strong>${element.author}</strong></p>
     <p>${element.pages} pages</p>
-    <button class="read-status" id=${element.read}>${element.read}</button>
+    <button class="read-status" id=${element.read} onclick=updateReadStatus(this)>${element.read}</button>
     <button class="remove-button" id=${element.id} onclick=removeBook(this.id)>Remove Book</button>
     `;
     libraryContainer.appendChild(div);
@@ -66,16 +66,28 @@ function handleAddBook(event) {
 
   addBookToLibrary(myLibrary);
   displayLibrary(myLibrary);
-  alert("Book Added!");
 }
 
 function removeBook(id) {
-  console.log(typeof id);
-  console.log(typeof parseInt(id));
-  console.log(myLibrary);
   const index = myLibrary.findIndex((element) => element.id === parseInt(id));
   if (index !== -1) {
     myLibrary.splice(index, 1);
   }
   displayLibrary(myLibrary);
+}
+function updateReadStatus(button){
+    //retrieve id of book through parent div element
+    const parentElement = button.parentElement;
+    const parentID = parseInt(parentElement.id);
+
+    const index = myLibrary.findIndex((element) => element.id === parseInt(parentID));
+    if(index !== -1){
+        if(myLibrary[index].read == "Read"){
+            myLibrary[index].read = "Unread";
+        }
+        else{
+            myLibrary[index].read = "Read";
+        }
+    }
+    displayLibrary(myLibrary);
 }
