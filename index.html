@@ -7,20 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="library-container">
-        <div class="book-card">
-            <h1>Title</h1>
-            <h2>Author</h2>
-            <h2>No of Pages</h2>
-            <button>Remove Book</button>
+    <header>
+        <h1>Paul's Library</h1>
+      </header>
+      <div class='library-container' id='library-container'>
+        <div class='book-tile add-book'>
+          <h2>Add Book</h2>
+          <form onsubmit="handleAddBook(event)">
+            <input type="text" id='title' name='title' placeholder='Title'><br>
+            <input type="text" id='author' name='author' placeholder='Author'><br>
+            <input type="text" id='pages' name='pages' placeholder='No of Pages'><br>
+            <label>Have you read this book?</label><br>
+            <input type="radio" id="yes" name="readBook" value="Yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="no" name="readBook" value="No" checked='checked'>
+            <label for="no">No</label><br>
+            <input type="submit" value="Add Book">
+          </form>
         </div>
-        <div class="book-card">
-            <h1>Title</h1>
-            <h2>Author</h2>
-            <h2>No of Pages</h2>
-            <button>Remove Book</button>
-        </div>
-    </div>
+      </div>
     <script src="script.js"></script>
 </body>
 </html>
